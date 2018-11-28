@@ -1,0 +1,30 @@
+.navbar-brand {
+    font-display: bold;
+    font-size: 140%;
+    padding-left: 2rem;
+}
+
+.navbar {
+    margin-top: 2rem;
+    background-color: transparent;
+}
+
+.navbar-end {
+    padding-right: 2rem;
+}
+
+nav.navbar .navbar-item {
+    padding: .5rem 2rem;
+}
+
+.navbar-item {
+    font-size: 120%;
+    color: black;
+}
+
+html {
+    background-image: url("../img/background.jpg");
+    background-size: cover;
+}
+
+title {}
