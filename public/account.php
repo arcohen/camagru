@@ -19,7 +19,7 @@
     
     <form class="has-text-centered f_acc" action="/php/account_reset.php" method="post">
         <input placeholder="New Email" type="email" name="new_email" required>
-		<input placeholder="Old Password" type="password" name="old_p" required>
+		<input placeholder="Password" type="password" name="old_p" required>
         <input type="submit" name="submit_email" value="Submit">
     </form>
     <?php
@@ -30,7 +30,7 @@
    
    <form class="has-text-centered f_acc" action="/php/account_reset.php" method="post">
         <input placeholder="New Username" type="text" name="new_username" required>
-		<input placeholder="Old Password" type="password" name="old_p" required>
+		<input placeholder="Password" type="password" name="old_p" required>
         <input type="submit" name="submit_username" value="Submit">
     </form>
     <?php
@@ -38,6 +38,19 @@
             echo "<h2 class='has-text-centered is-size-4'>Username already in use</h2>";
         }
     ?>
+    <form class="has-text-centered f_acc" action="/php/account_reset.php" method="post">
+        <input type="radio" name="comment" value=1> Email comments<br>
+        <input type="radio" name="comment" value=0> Do not email comments<br>
+        <input type="submit" name="submit_comment" value="Submit">
+    </form>
+    <?php
+        if ($_GET["message"] == "comment") {
+            echo "<h2 class='has-text-centered is-size-4'>Comment settings updated</h2>";
+        }
+    ?>
+    <form class="has-text-centered f_acc" action="/php/account_reset.php" method="post">
+        <input type="submit" name="delete" value="Delete Account">
+    </form>
 </body>
 
 <?php include "templates/footer.php"; ?>

@@ -49,16 +49,40 @@ else if (isset($_POST["submit_email"]))
 else if (isset($_POST["submit_username"]))
 {
     $stmt = $conn->prepare("SELECT * FROM users WHERE username=?");
-    $stmt->execute([$_POST["new_username"]]);
+    $stmt->execute([$_SESSION["username"]]);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $result = $stmt->fetch();
 
-    if ($stmt->rowCount() == 0) {
-        $stmt = $conn->prepare("UPDATE users SET username=? WHERE username=?");
-        $stmt->execute([$_POST["new_username"], $_SESSION["username"]]);
-        $_SESSION["username"] = $_POST["new_username"];
-        header("Location: /public/landing.php?reset=username");
+    if (password_verify($_POST["old_p"], $result["password"])) {
+        $stmt = $conn->prepare("SELECT * FROM users WHERE username=?");
+        $stmt->execute([$_POST["new_username"]]);
+
+        if ($stmt->rowCount() == 0) {
+            $stmt = $conn->prepare("UPDATE users SET username=? WHERE username=?");
+            $stmt->execute([$_POST["new_username"], $_SESSION["username"]]);
+            $_SESSION["username"] = $_POST["new_username"];
+            header("Location: /public/landing.php?reset=username");
+        }
+        else
+            header("Location: /public/account.php?message=incorrect");
     }
-    else
+    else 
         header("Location: /public/account.php?message=incorrect");
 }
+
+else if (isset($_POST["submit_comment"]))
+{
+    $stmt = $conn->prepare("UPDATE users SET comment=? WHERE username=?");
+    $stmt->execute([$_POST["comment"], $_SESSION["username"]]);
+    header("Location: /public/account.php?message=comment");
+}
+
+else if (isset($_POST["delete"])) {
+    $stmt = $conn->prepare("DELETE FROM users WHERE username=?");
+    $stmt->execute([$_SESSION["username"]]);
+    session_destroy();
+    header("Location: /index.php");
+}
+
 
 ?>

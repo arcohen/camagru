@@ -56,3 +56,11 @@ form {
 .f_acc {
     padding-top: 6%;
 }
+
+footer {
+    position: fixed;
+}
+
+.photo-col {
+    padding-top: 12%;
+}

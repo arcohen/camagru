@@ -6,10 +6,11 @@
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<title>Camagru</title>
+  <title>Camagru</title>
+  <link rel="shortcut icon" href="/img/favicon-32x32.png" type="image/png">
 
 	<link rel="stylesheet" href="/css/bulma.css">
-    <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <nav class="navbar is-transparent nav-top">
@@ -21,7 +22,7 @@
     
     <div class="navbar-end">
       <div class="navbar-item">
-		<a class="navbar-item" href="#">Take Photo</a>
+		<a class="navbar-item" href="/public/photo.php">Take Photo</a>
 		<a class="navbar-item" href="#">Gallery</a>
         <div class="buttons">
           <a class="button is-medium is-outlined is-primary"

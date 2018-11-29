@@ -24,7 +24,8 @@ $user_table = "CREATE TABLE IF NOT EXISTS `users` (
     `email` VARCHAR(50) NOT NULL,
     `password` VARCHAR(255) NOT NULL,
     `ver_code` VARCHAR(255) NOT NULL,
-    `verified` BOOLEAN NOT NULL DEFAULT '0'
+    `verified` BOOLEAN NOT NULL DEFAULT '0',
+    `comment` BOOLEAN NOT NULL DEFAULT '1'
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 $conn->exec($user_table);
@@ -38,6 +39,14 @@ $reset_password = "CREATE TABLE IF NOT EXISTS `password_reset` (
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 $conn->exec($reset_password);
+
+$image_table = "CREATE TABLE IF NOT EXISTS `images` (
+    `id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `username` VARCHAR(255) NOT NULL,
+    `img` MEDIUMTEXT NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+$conn->exec($image_table);
 
 header('Location: ../index.php');
 ?>
