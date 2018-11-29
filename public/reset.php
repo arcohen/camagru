@@ -18,9 +18,9 @@ if ($_POST["submit"] == "Submit") {
         if ($result["expires"] > time()) {
             $stmt = $conn->prepare("UPDATE users SET password=? WHERE email=?");
             if ($stmt->execute([password_hash($_POST["password"], PASSWORD_DEFAULT), $email])) {
-                echo "password updated";
                 $stmt = $conn->prepare("DELETE FROM password_reset WHERE email=?");
                 $stmt->execute([$email]);
+                header("Location: /public/login.php?reset=reset");
             }
             else
                 echo "Something went wrong";

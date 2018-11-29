@@ -6,7 +6,12 @@
 			<div class="columns">
 				<div class="column is-half">
 					<?php
-						
+						if ($_GET["login"]) {
+							echo "<h1 class='has-text-centered is-size-3'>Successfully Logged In</h1>";
+						}
+						else if ($_GET["reset"]) {
+							echo "<h1 class='has-text-centered is-size-3'>Please check email to reset password</h1>";
+						}
 					?>
 				</div>
 				<div class="column is-half">

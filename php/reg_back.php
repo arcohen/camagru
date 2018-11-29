@@ -46,16 +46,16 @@ if (isset($_POST["submit"])) {
 				$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
                 $stmt->execute([$_POST["username"], $_POST["email"], $password, $ver_code]);
                 send_mail($_POST["email"], $_POST["username"], $ver_code);
-				//header("Location: /public/login.php?message=Successfully submitted. Please check email to complete sign up");
+				header("Location: /public/login.php?message=submitted");
 			}
 			else
-				echo "username already taken";
+				header("Location: /public/registration.php?message=username");
 		}
 		else
-			echo "email already taken";
+			header("Location: /public/registration.php?message=email");
 	}
 	else
-		echo "passwords do not match";
+		header("Location: /public/registration.php?message=password");
 }
 
 ?>

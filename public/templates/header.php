@@ -23,9 +23,15 @@
       <div class="navbar-item">
 		<a class="navbar-item" href="#">Take Photo</a>
 		<a class="navbar-item" href="#">Gallery</a>
-		<a class="navbar-item" href="#">Account</a>
         <div class="buttons">
-          <a class="button is-medium is-outlined is-primary" href="/public/registration.php"><strong>Sign up</strong></a>
+          <a class="button is-medium is-outlined is-primary"
+          <?php
+              session_start();
+              if ($_SESSION["username"])
+                echo 'href="/public/account.php"><strong>Account</strong></a>';
+              else
+                echo 'href="/public/registration.php"><strong>Sign up</strong></a>';
+          ?>
           <a id="loginout" class="button is-medium is-outlined is-success"
             <?php
                 session_start();

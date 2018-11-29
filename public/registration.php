@@ -9,6 +9,17 @@
 		<input placeholder="Confirm Password" type="password" name="password2" required>
 		<input type="submit" name="submit" value="Submit">
 	</form>
+	<?php
+        if ($_GET["message"] == "username") {
+            echo "<h1 class='has-text-centered is-size-3 land'>Username already taken</h1>";
+        }
+        else if ($_GET["message"] == "email") {
+            echo "<h1 class='has-text-centered is-size-3 land'>Email already taken</h1>";
+		}
+		else if ($_GET["message"] == "password") {
+            echo "<h1 class='has-text-centered is-size-3 land'>Passewords do not match</h1>";
+        }
+    ?>
 </body>
 
 <?php include "./templates/footer.php"; ?>

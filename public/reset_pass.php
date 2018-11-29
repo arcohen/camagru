@@ -65,6 +65,7 @@ if (isset($_POST["submit"]))
 	if ($stmt->rowCount() == 1) {
 		$url = reset_email($email, $conn);
 		send_email($email, $result[username], $url);
+		header("Location: /public/landing.php?reset=sent");
 	}
     else
         echo "email address not found";

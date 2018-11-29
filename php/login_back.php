@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
 		{
 			echo "login successful";
             $_SESSION["username"] = $username;
-            header("Location: /index.php");
+            header("Location: /index.php?login=login");
 		}
         else {
             echo "incorrect username/password";

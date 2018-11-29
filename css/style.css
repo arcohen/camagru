@@ -1,16 +1,15 @@
+body {
+    padding: 0 8%;
+}
+
 .navbar-brand {
     font-display: bold;
     font-size: 140%;
-    padding-left: 2rem;
 }
 
 .navbar {
     margin-top: 2rem;
     background-color: transparent;
-}
-
-.navbar-end {
-    padding-right: 2rem;
 }
 
 nav.navbar .navbar-item {
@@ -38,4 +37,22 @@ html {
 
 .logout {
     padding-top: 10rem;
+}
+
+form {
+    padding-top: 15%;
+    text-align: center;
+}
+
+#a_head {
+    padding-top: 8%;
+    text-decoration: underline;
+}
+
+.land {
+    padding-top: 8%;
+}
+
+.f_acc {
+    padding-top: 6%;
 }
