@@ -38,14 +38,15 @@ $email = filter_input(INPUT_GET, 'email');
 
 if (false !== ctype_xdigit($selector) && false !== ctype_xdigit($validator)):
 ?>
-    <form action="reset.php" method="post">
-        <input type="hidden" name="selector" value="<?php echo $selector; ?>">
-        <input type="hidden" name="validator" value="<?php echo $validator; ?>">
-        <input type="hidden" name="email" value="<?php echo $email; ?>">
-        <input placeholder="Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
-			title="Must contain at least one number and one uppercase and lowercase letter, and 
-            at least 8 or more characters" name="password" required>
-        <input type="submit" name="submit" value="Submit">
-    </form>
-    <p><a href="index.php">Login here</a></p>
+        <form action="reset.php" method="post">
+            <input type="hidden" name="selector" value="<?php echo $selector; ?>">
+            <input type="hidden" name="validator" value="<?php echo $validator; ?>">
+            <input type="hidden" name="email" value="<?php echo $email; ?>">
+            <input placeholder="Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
+                title="Must contain at least one number and one uppercase and lowercase letter, and 
+                at least 8 or more characters" name="password" required>
+            <input type="submit" name="submit" value="Submit">
+        </form>
+        <?php include "./templates/footer.php"; ?>
 <?php endif; ?>
+

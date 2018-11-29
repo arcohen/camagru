@@ -27,4 +27,15 @@ html {
     background-size: cover;
 }
 
-title {}
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding-bottom: 2rem;
+    background-color: transparent;
+}
+
+.logout {
+    padding-top: 10rem;
+}

@@ -9,7 +9,7 @@
 	<title>Camagru</title>
 
 	<link rel="stylesheet" href="/css/bulma.css">
-	<link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <nav class="navbar is-transparent nav-top">
@@ -26,7 +26,14 @@
 		<a class="navbar-item" href="#">Account</a>
         <div class="buttons">
           <a class="button is-medium is-outlined is-primary" href="/public/registration.php"><strong>Sign up</strong></a>
-          <a class="button is-medium is-outlined is-success" href="/public/login.php">Log in</a>
+          <a id="loginout" class="button is-medium is-outlined is-success"
+            <?php
+                session_start();
+                if ($_SESSION["username"])
+                    echo 'href="/php/logout_back.php">Log out</a>';
+                else
+                    echo 'href="/public/login.php">Log in</a>';
+            ?>
         </div>
       </div>
     </div>

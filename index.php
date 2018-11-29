@@ -5,7 +5,9 @@
 		<div class="container has-text-right">
 			<div class="columns">
 				<div class="column is-half">
-					
+					<?php
+						
+					?>
 				</div>
 				<div class="column is-half">
 					<h1 class="title has-text-gray-darker has-font-weight-bold has-text-centered is-size-2">Cam | agru</h1>
@@ -15,4 +17,4 @@
 		</div>
 	</section>
 </body>
-</html>
+<?php include "public/templates/footer.php"; ?>
