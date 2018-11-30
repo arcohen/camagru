@@ -64,3 +64,12 @@ footer {
 .photo-col {
     padding-top: 12%;
 }
+
+#navbarBasicExample {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+#photo_form {
+    text-align: left;
+}

@@ -4,19 +4,22 @@
     <div class="columns photo-col">
         <div class="column">
             <video id="video" width="320" height="240" autoplay></video>
-            <form action="/php/photo_merge.php">
-                <input type="hidden" name="image" class="img-tag">
-                <select id="options">
+            <form id="photo_form" action="/php/photo_merge.php" method="POST">
+                <select name="frame" id="options">
                     <option id="none" value="none">None</option>
                     <option id="fool" value="fool">Fool</option>
                     <option id="psy" value="psy">Psychedelic</option>
                 </select>
-                <input type="submit" name="submit" id="snap" value="Take Photo">
+                <input type="hidden" name="image" id="img_tag">
+                <input type="button" name="Submit" id="snap" value="Take Photo">
+                <input type="submit" name="Save">
             </form>
             <canvas id="canvas" width="320" height="240"></canvas>
         </div>
         <div class="column">
-            Second column
+            <?php
+                
+            ?>
         </div>
     </div>
 </body>

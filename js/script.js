@@ -12,8 +12,10 @@ var context = canvas.getContext('2d');
 var video = document.getElementById('video');
 
 document.getElementById('snap').addEventListener('click', function() {
-    //context.drawImage(video, 0, 0, 320, 240);
-    //context.drawImage(img, 0, 0, 320, 240);
+   context.drawImage(video, 0, 0, 320, 240);
+   canvas.toDataURL();
+   document.getElementById("img_tag").value = canvas.toDataURL();
+
 });
 
 document.getElementById('snap').disabled = true;
