@@ -18,7 +18,12 @@
         </div>
         <div class="column">
             <?php
-                
+                include "../config/connection.php";
+                $stmt = $conn->query("SELECT * FROM images ORDER BY id DESC LIMIT 5");
+                $stmt->setFetchMode(PDO::FETCH_ASSOC);    
+                while ($row = $stmt->fetch()) {
+                    echo '<img src="' . $row['img'] . '">';
+                }
             ?>
         </div>
     </div>
