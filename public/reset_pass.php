@@ -1,4 +1,8 @@
 <?php
+
+if ($_SESSION['username'] == NULL)
+    header('Location: /public/login.php/?access=no');
+
 include "./templates/header.php";
 
 function reset_email($email, $conn) {

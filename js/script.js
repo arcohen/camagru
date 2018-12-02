@@ -1,3 +1,6 @@
+
+// Webcam button control etc
+
 var video = document.getElementById('video');
 
 if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -18,6 +21,7 @@ document.getElementById('snap').addEventListener('click', function() {
 
 });
 
+document.getElementById('submit').disabled = true;
 document.getElementById('snap').disabled = true;
 
 document.getElementById('options').addEventListener('change', function() {
@@ -28,3 +32,9 @@ document.getElementById('options').addEventListener('change', function() {
     else
         document.getElementById('snap').disabled = false;        
 })
+
+document.getElementById('snap').addEventListener('click', function() {
+    document.getElementById('submit').disabled = false;
+})
+
+

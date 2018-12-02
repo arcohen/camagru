@@ -44,6 +44,10 @@ form {
     text-align: center;
 }
 
+input {
+    font-size: 105%;
+}
+
 #a_head {
     padding-top: 8%;
     text-decoration: underline;
@@ -76,4 +80,103 @@ footer {
 
 #container {
     margin-bottom: 5%;
+}
+
+figcaption {
+    height: 82px;
+    width: 320px;
+    font: 16px/26px Georgia, Garamond, Serif;
+    overflow: auto;
+    padding: 10px 10px 10px 0;
+}
+
+header { 
+    /* padding: .5vw; */
+    /* font-size: 0;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-direction: column;
+    -webkit-flex-flow: row wrap; 
+    flex-flow: row wrap; 
+    display: -webkit-box;
+    display: flex; */
+    width: 320px;
+    height: 240px;
+}
+header div { 
+/* -webkit-box-flex: auto;
+-ms-flex: auto;
+flex: auto;  */
+/* margin: .5vw;  */
+}
+header div img { 
+width: 100%; 
+height: auto; 
+}
+@media screen and (max-width: 400px) {
+header div { margin: 0; }
+header { padding: 0; }
+}
+
+#gallery_con {
+    padding-top: 7%;
+}
+
+.comment_input {
+    padding: 10px 0;
+    margin: 0;
+    border: 0;
+    text-align: left;
+    display: none;
+}
+
+.comment_box {
+    margin-right: 12px;
+    width: 220px;
+}
+
+.pic {
+    position: relative;
+}
+
+.comment-button {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    display: none;
+    top: 117px;
+    left: 65px;
+    transform: translateY(-50%);
+    padding: 0 5%;
+    font-size: 300%;
+}
+
+.delete-image {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    display: none;
+    top: 125px;
+    right: 77px;
+    transform: translateY(-50%);
+    padding: 0 5%;
+    font-size: 300%;
+}
+
+div.image_div:hover img {
+    opacity: 0.5;
+}
+
+div.image_div:hover .comment-button {
+    display: block;
+    opacity: 0.92;
+}
+
+div.image_div:hover .delete-image {
+    display: block;
+    opacity: 0.92;
+}
+
+.delete-form {
+    display: none;
 }

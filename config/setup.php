@@ -48,5 +48,14 @@ $image_table = "CREATE TABLE IF NOT EXISTS `images` (
 
 $conn->exec($image_table);
 
+$comment_table = "CREATE TABLE IF NOT EXISTS `comments` (
+    `id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `img_id` VARCHAR(255) NOT NULL,
+    `username` MEDIUMTEXT NOT NULL,
+    `comment` VARCHAR(255)
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+$conn->exec($comment_table);
+
 header('Location: ../index.php');
 ?>

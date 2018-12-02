@@ -1,4 +1,8 @@
-<?php include "./templates/header.php"; ?>
+<?php 
+include "./templates/header.php";
+if (isset($_SESSION['username']) == NULL)
+    header('Location: /public/login.php/?access=no');
+?>
 
 <body>
     <div class="columns photo-col">
@@ -9,17 +13,19 @@
                     <option id="none" value="none">None</option>
                     <option id="fool" value="fool">Fool</option>
                     <option id="psy" value="psy">Psychedelic</option>
+                    <option id="psy" value="flowers">Flowers</option>
                 </select>
                 <input type="hidden" name="image" id="img_tag">
                 <input type="button" name="Submit" id="snap" value="Take Photo">
-                <input type="submit" name="Save">
+                <input type="submit" name="Save" id="submit">
             </form>
             <canvas id="canvas" width="320" height="240"></canvas>
         </div>
         <div class="column">
             <?php
                 include "../config/connection.php";
-                $stmt = $conn->query("SELECT * FROM images ORDER BY id DESC LIMIT 5");
+                $stmt = $conn->prepare("SELECT * FROM images WHERE username = ? ORDER BY id DESC");
+                $stmt->execute([$_SESSION['username']]);
                 $stmt->setFetchMode(PDO::FETCH_ASSOC);    
                 while ($row = $stmt->fetch()) {
                     echo '<img src="' . $row['img'] . '">';
@@ -30,3 +36,4 @@
 </body>
 
 <?php include "templates/footer.php"; ?>
+<script type="text/javascript" src="/js/script.js"></script>

@@ -22,8 +22,10 @@ file_put_contents("temp.png", $image_base64);
 
 if ($_POST["frame"] == "fool")
     $frame_path = "http://localhost:8080/img/fool.png";
-else
+else if ($_POST["frame"] == "psy")
     $frame_path = "http://localhost:8080/img/wooh.png";
+else
+    $frame_path = "http://localhost:8080/img/flower.png";
 
 $frame = imagecreatefrompng($frame_path);
 $webcam_img = imagecreatefrompng('temp.png');

@@ -16,6 +16,10 @@
 			echo "<h1 class='has-text-centered is-size-4'>Your account has been verified. Please log in</h1>";
 		else if ($_GET["reset"])
 			echo "<h1 class='has-text-centered is-size-4'>Password Reset Please Login</h1>";
+		else if ($_GET["access"])
+			echo "<h1 class='has-text-centered is-size-4'>Please log in to access this page</h1>";
+		else if ($_GET["comment"])
+			echo "<h1 class='has-text-centered is-size-4'>Please log in to comment</h1>";
 	?>
 </body>
 

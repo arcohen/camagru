@@ -1,4 +1,8 @@
-<?php include "./templates/header.php"; ?>
+<?php
+include "./templates/header.php";
+if (isset($_SESSION['username']) == NULL)
+    header('Location: /public/login.php/?access=no');
+?>
 
 <body>
     <h1 id="a_head" class="has-text-centered is-size-3"><?php echo $_SESSION["username"] ?>'s account</h1>
