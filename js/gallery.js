@@ -1,6 +1,7 @@
 var comment = document.getElementsByClassName("comment-button");
 var del = document.getElementsByClassName("delete-image");
 var form = document.getElementsByClassName("delete-form");
+var like = document.getElementsByClassName("like-button");
 var swap = 1;
 
 for (var i = 0; i < comment.length; i++)
@@ -18,6 +19,10 @@ for (var i = 0; i < comment.length; i++)
 
     del[i].addEventListener("click", function(e) {
         e.target.nextSibling.submit();
-    })
+    });
+
+    like[i].addEventListener("click", function(e) {
+        e.target.nextSibling.submit();
+    });
 
 }

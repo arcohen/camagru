@@ -20,6 +20,10 @@
 			echo "<h1 class='has-text-centered is-size-4'>Please log in to access this page</h1>";
 		else if ($_GET["comment"])
 			echo "<h1 class='has-text-centered is-size-4'>Please log in to comment</h1>";
+		else if ($_GET["delete"])
+			echo "<h1 class='has-text-centered is-size-4'>Please log in to delete photos</h1>";
+		else if ($_GET["like"])
+			echo "<h1 class='has-text-centered is-size-4'>Please log in to like photos</h1>";
 	?>
 </body>
 

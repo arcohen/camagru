@@ -43,7 +43,7 @@ $conn->exec($reset_password);
 $image_table = "CREATE TABLE IF NOT EXISTS `images` (
     `id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
     `username` VARCHAR(255) NOT NULL,
-    `img` MEDIUMTEXT NOT NULL
+    `img` MEDIUMTEXT NOT NULL,
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 $conn->exec($image_table);
@@ -52,10 +52,18 @@ $comment_table = "CREATE TABLE IF NOT EXISTS `comments` (
     `id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
     `img_id` VARCHAR(255) NOT NULL,
     `username` MEDIUMTEXT NOT NULL,
-    `comment` VARCHAR(255)
+    `comment` VARCHAR(255) NOT NULL
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
 
 $conn->exec($comment_table);
+
+$like_table = "CREATE TABLE `likes` (
+    `id` INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+    `username` MEDIUMTEXT NOT NULL,
+    `img_id` VARCHAR(255) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8";
+
+$conn->exec($like_table);
 
 header('Location: ../index.php');
 ?>

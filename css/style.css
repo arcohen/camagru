@@ -145,7 +145,7 @@ header { padding: 0; }
     width: 70px;
     display: none;
     top: 117px;
-    left: 65px;
+    left: 25px;
     transform: translateY(-50%);
     padding: 0 5%;
     font-size: 300%;
@@ -157,10 +157,43 @@ header { padding: 0; }
     width: 70px;
     display: none;
     top: 125px;
-    right: 77px;
+    right: 25px;
     transform: translateY(-50%);
     padding: 0 5%;
     font-size: 300%;
+}
+
+.like-button {
+    position: absolute;
+    height: 70px;
+    width: 70px;
+    display: none;
+    top: 125px;
+    left: 120px;
+    transform: translateY(-50%);
+    padding: 0 5%;
+    font-size: 300%;
+}
+
+.image-username {
+    position: absolute;
+    display: none;
+    top: 35px;
+    left: 100px;
+    transform: translateY(-50%);
+    padding: 0 5%;
+    font-size: 250%;
+}
+
+.image-likes {
+    position: absolute;
+    display: none;
+    bottom: 15px;
+    left: 105px;
+    transform: translateY(-50%);
+    padding: 0 5%;
+    font-size: 150%;
+    color: black;
 }
 
 div.image_div:hover img {
@@ -177,6 +210,26 @@ div.image_div:hover .delete-image {
     opacity: 0.92;
 }
 
+div.image_div:hover .like-button {
+    display: block;
+    opacity: 0.92;
+}
+
+div.image_div:hover .image-username {
+    display: block;
+    opacity: 0.92;
+}
+
+div.image_div:hover .image-likes {
+    display: block;
+    opacity: 0.72;
+}
+
 .delete-form {
     display: none;
 }
+
+.like-form {
+    display: none;
+}
+

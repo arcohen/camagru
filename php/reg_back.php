@@ -1,7 +1,6 @@
 <?php
 
 function send_mail($email, $username, $ver_code) {
-    echo "beginning";
     $url = sprintf('%sverify.php?%s', "http://localhost:8080/php/", http_build_query([
 		'email' => $email,
 		'verification' => $ver_code,
