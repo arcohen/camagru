@@ -23,7 +23,8 @@ if (isset($_POST["submit"])) {
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         $result = $stmt->fetch();
         
-        mail($result["email"], "Photo Comment", $message, $headers);
+        if ($result["comment"] == 1)
+            mail($result["email"], "Photo Comment", $message, $headers);
     }
 
     if (isset($_SESSION['username'])) {
