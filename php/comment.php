@@ -29,7 +29,7 @@ if (isset($_POST["submit"])) {
 
     if (isset($_SESSION['username'])) {
         $stmt = $conn->prepare("INSERT INTO comments (img_id, username, comment) VALUES (?, ?, ?)");
-        $stmt->execute([$_POST["img_id"], $_SESSION["username"], $_POST["comment"]]);
+        $stmt->execute([$_POST["img_id"], $_SESSION["username"], filter_var($_POST["comment"],FILTER_SANITIZE_SPECIAL_CHARS)]);
         $stmt = $conn->prepare("SELECT * FROM images WHERE id = ?");
         $stmt->execute([$_POST["img_id"]]);
 		$stmt->setFetchMode(PDO::FETCH_ASSOC);

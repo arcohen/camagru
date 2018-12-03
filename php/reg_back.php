@@ -23,10 +23,8 @@ function send_mail($email, $username, $ver_code) {
 if (isset($_POST["submit"])) {
     include "../config/connection.php";
     
-	$stmt = $conn->prepare("SELECT * FROM users WHERE username=:username");
-	$stmt->bindParam(":username", $user);
-	$user = $_POST["username"];
-	$stmt->execute();
+	$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
+	$stmt->execute($_POST["username"]);
 
 	$est = $conn->prepare("SELECT * FROM users WHERE email=:email");
 	$est->bindParam(":email", $eeemail);

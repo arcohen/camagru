@@ -15,11 +15,13 @@
 					?>
 				</div>
 				<div class="column is-half">
-					<h1 class="title has-text-gray-darker has-font-weight-bold has-text-centered is-size-2">Cam | agru</h1>
-					<h2 class="subtitle has-text-gray-dark has-text-centered is-size-4">Your photo sharing App</h2>
+					<h1 class="title has-text-gray-darker has-font-weight-bold has-text-centered is-size-2 main-thing">Cam | agru</h1>
+					<h2 class="subtitle has-text-gray-dark has-text-centered is-size-4 main-thing">Your photo sharing App</h2>
 				</div>
 			</div>
 		</div>
 	</section>
 </body>
 <?php include "public/templates/footer.php"; ?>
+
+<style>footer {position: fixed;}</style>

@@ -26,7 +26,7 @@
 		<a class="navbar-item" href="/public/photo.php">Take Photo</a>
 		<a class="navbar-item" href="/public/gallery.php">Gallery</a>
         <div class="buttons">
-          <a class="button is-medium is-outlined is-primary"
+          <a class="button is-medium is-outlined is-warning"
           <?php
               session_start();
               if ($_SESSION["username"])
@@ -34,13 +34,13 @@
               else
                 echo 'href="/public/registration.php"><strong>Sign up</strong></a>';
           ?>
-          <a id="loginout" class="button is-medium is-outlined is-success"
+          <a id="loginout" class="button is-medium is-outlined is-white"
             <?php
                 session_start();
                 if ($_SESSION["username"])
-                    echo 'href="/php/logout_back.php">Log out</a>';
+                    echo 'href="/php/logout_back.php"><strong>Log out</strong></a>';
                 else
-                    echo 'href="/public/login.php">Log in</a>';
+                    echo 'href="/public/login.php"><strong>Log in</strong></a>';
             ?>
         </div>
       </div>

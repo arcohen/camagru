@@ -1,5 +1,12 @@
-body {
-    padding: 0 8%;
+html {
+    height: 100%;
+    background: url("../img/roman.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    color: white;
 }
 
 .navbar-brand {
@@ -8,8 +15,8 @@ body {
 }
 
 .navbar {
-    margin-top: 2rem;
     background-color: transparent;
+    padding-top: 2rem;
 }
 
 nav.navbar .navbar-item {
@@ -18,21 +25,21 @@ nav.navbar .navbar-item {
 
 .navbar-item {
     font-size: 120%;
-    color: black;
-}
-
-html {
-    background-image: url("../img/background.jpg");
-    background-size: cover;
+    color: white;
 }
 
 .footer {
-    position: fixed;
+    /* position: fixed; */
     bottom: 0;
     right: 0;
     left: 0;
     padding-bottom: 2rem;
     background-color: transparent;
+}
+
+.footer p {
+    color: whitesmoke;
+    opacity: 0.82;
 }
 
 .logout {
@@ -42,6 +49,7 @@ html {
 form {
     padding-top: 15%;
     text-align: center;
+    color: white;
 }
 
 input {
@@ -65,10 +73,6 @@ input {
     padding-top: 6%;
 }
 
-footer {
-    position: fixed;
-}
-
 .photo-col {
     padding-top: 12%;
 }
@@ -80,6 +84,7 @@ footer {
 
 #photo_form {
     text-align: left;
+    padding-bottom: 48px;    
 }
 
 #container {
@@ -92,6 +97,8 @@ figcaption {
     font: 16px/26px Georgia, Garamond, Serif;
     overflow: auto;
     padding: 10px 10px 10px 0;
+    color: whitesmoke;
+    margin-bottom: 25px;
 }
 
 header { 
@@ -126,40 +133,41 @@ header { padding: 0; }
     width: 220px;
 }
 
-.pic {
+.pic img {
     position: relative;
+    border-radius: 2%;
 }
 
 .comment-button {
-    position: absolute;
+    position: relative;
     height: 70px;
     width: 70px;
     display: none;
-    top: 117px;
-    left: 25px;
+    bottom: 180px;
+    left: 12px;
     transform: translateY(-50%);
     padding: 0 5%;
     font-size: 300%;
 }
 
 .delete-image {
-    position: absolute;
+    position: relative;
     height: 70px;
     width: 70px;
     display: none;
-    top: 125px;
-    right: 25px;
+    bottom: 242px;
+    left: 230px;
     transform: translateY(-50%);
     padding: 0 5%;
     font-size: 300%;
 }
 
 .like-button {
-    position: absolute;
+    position: relative;
     height: 70px;
     width: 70px;
     display: none;
-    top: 125px;
+    bottom: 310px;
     left: 120px;
     transform: translateY(-50%);
     padding: 0 5%;
@@ -167,9 +175,9 @@ header { padding: 0; }
 }
 
 .image-username {
-    position: absolute;
+    position: relative;
     display: none;
-    top: 35px;
+    bottom: 210px;
     left: 100px;
     transform: translateY(-50%);
     padding: 0 5%;
@@ -177,14 +185,18 @@ header { padding: 0; }
 }
 
 .image-likes {
-    position: absolute;
+    position: relative;
     display: none;
-    bottom: 15px;
+    bottom: 300px;
     left: 105px;
     transform: translateY(-50%);
     padding: 0 5%;
-    font-size: 150%;
-    color: black;
+    font-size: 180%;
+    /* color: black; */
+}
+
+.image_div {
+    height: 320px;
 }
 
 div.image_div:hover img {
@@ -213,7 +225,7 @@ div.image_div:hover .image-username {
 
 div.image_div:hover .image-likes {
     display: block;
-    opacity: 0.72;
+    opacity: 0.99;
 }
 
 .delete-form {
@@ -224,9 +236,41 @@ div.image_div:hover .image-likes {
     display: none;
 }
 
-.pagination {
-    position: absolute;
-    left: 50%;
-    bottom: 100px;
+@media screen and (min-width: 600px) {
+    .cell {
+      width: calc(50% - 2rem);
+    }
+}  
+
+.cell {
+    width: 320px;
+    margin: auto;
+    display: block;
 }
 
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+#video {
+    text-align: center;
+} 
+
+.photo-div {
+    width: 320px;
+    margin: auto;
+}
+
+.other-gallery {
+    padding-bottom: 30px;
+}
+
+.main-thing {
+    color: white;
+}
+
+#gallery-container {
+    max-width: 1280px;
+}
