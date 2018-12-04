@@ -12,10 +12,10 @@
             $stmt = $conn->prepare('DELETE FROM comments WHERE img_id = ?');
             $stmt->execute([$_POST["id"]]);
 
-            header('Location: /public/gallery.php');
+            header('Location: /public/gallery.php?delete=yes');
 
         } else {
-            header("Location: /public/gallery.php?");
+            header("Location: /public/gallery.php?delete=no");
         }
     } 
     else

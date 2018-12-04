@@ -6,6 +6,17 @@ include "./templates/header.php";
 
 
     <div id="gallery-container" class="container">
+            <?php
+                if (isset($_GET['delete'])) {
+                    if ($_GET['delete'] == 'yes')
+                        $message = 'Photo Deleted';
+                    else
+                        $message = 'You can only delete your own photo';
+
+                    echo '<div class="section is-size-3 has-text-centered">' . $message . '</div>';
+                }
+
+            ?>
         <div class="section">
             <div class="grid">
                 <?php
@@ -14,6 +25,8 @@ include "./templates/header.php";
                     $total = $stmt->rowCount();
                     
                     $limit = 9;
+                    if (isset($_GET['scroll']))
+                        $limit = 5000;
                     
                     $pages = ceil($total / $limit);
                     
@@ -30,14 +43,14 @@ include "./templates/header.php";
                     $end = min(($offset + $limit), $total);
                     
                     if ($page > 1)
-                        $goback = '<a href="/public/gallery.php?page=' . ($page - 1) . '" class="pagination-previous">Previous</a>';
+                        $goback = '<a href="/public/gallery.php?page=' . ($page - 1) . '" class="pagination-previous pag-buttons">Previous</a>';
                     else
-                        $goback = '<a disabled class="pagination-previous">Previous</a>';
+                        $goback = '<a disabled class="pagination-previous pag-buttons">Previous</a>';
 
                     if ($page < $pages)
-                        $goforward = '<a href="/public/gallery.php?page=' . ($page + 1) . '" class="pagination-next">Next page</a>';
+                        $goforward = '<a href="/public/gallery.php?page=' . ($page + 1) . '" class="pagination-next pag-buttons">Next page</a>';
                     else
-                        $goforward = '<a disabled class="pagination-next">Next</a>';         
+                        $goforward = '<a disabled class="pagination-next pag-buttons">Next</a>';         
                     
                     
                     $stmt = $conn->prepare("SELECT * FROM images ORDER BY id DESC LIMIT :offset, :limit");
@@ -75,11 +88,6 @@ include "./templates/header.php";
                         echo    '</div>';
                         echo    '</header>';
                         echo    '<figcaption class="gallery_comm">';
-                        echo    '<form class="comment_input" action="/php/comment.php" method="POST">';
-                        echo        '<input class="comment_box" type="text" name="comment" maxlength="100">';
-                        echo        '<input type="hidden" name="img_id" value=' . $row["id"] . '>';  
-                        echo        '<input type="submit" name="submit" value="Comment">';
-                        echo    '</form>';
                         $img_id = $row['id'];
                         $sql = $conn->query("SELECT * FROM comments WHERE img_id = $img_id ORDER BY id DESC");
                         $sql->setFetchMode(PDO::FETCH_ASSOC);
@@ -87,6 +95,13 @@ include "./templates/header.php";
                         while ($com = $sql->fetch()) {
                             echo $com['username'] . ": " . $com['comment'] . "<br>";
                         }
+
+
+                        echo    '<form class="comment_input" action="/php/comment.php" method="POST">';
+                        echo        '<input class="comment_box" type="text" name="comment" maxlength="100">';
+                        echo        '<input type="hidden" name="img_id" value=' . $row["id"] . '>';  
+                        echo        '<input id="comment-submit-button" type="submit" name="submit" value="Comment">';
+                        echo    '</form>';
 
                         echo    '</figcaption>';
                         echo '</div>';
@@ -97,23 +112,26 @@ include "./templates/header.php";
     </div>
     <div class="section">
         <nav class="pagination is-centered" role="navigation">
-            <?php echo $goback ?>
-            <?php echo $goforward ?>
+            <?php 
+                
+                if (isset($_GET['scroll'])) {
+                   echo '<ul class="pagination-list">';
+                   echo '<li><a href="/public/gallery.php" id="inifinite" class="pagination-link pag-buttons">Finite Scroll</a></li>';
+                   echo '</ul>';
+                } else {
+                   echo $goback;
+                   echo $goforward;
+                   echo '<ul class="pagination-list">';
+                   echo     '<li><a href="/public/gallery.php/?scroll=infinite" id="inifinite" class="pagination-link pag-buttons">Infinite Scroll</a></li>';
+                   echo '</ul>';
+                }
+
+            ?>
+
         </nav>
     </div>
 
     </body>
-    <!-- <style>
-        html {
-        height: 100%;
-        background: url("../img/cat.jpg") no-repeat center center fixed; 
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        height: 100%;
-        color: white;
-        }
-    </style> -->
+
 <?php include "templates/footer.php"; ?>
 <script type="text/javascript" src="/js/gallery.js"></script>

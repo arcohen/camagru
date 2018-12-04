@@ -78,10 +78,20 @@ else if (isset($_POST["submit_comment"]))
 }
 
 else if (isset($_POST["delete"])) {
+    $stmt = $conn->prepare("SELECT * FROM users WHERE username=?");
+    $stmt->execute([$_SESSION["username"]]);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $result = $stmt->fetch();
+
+    if (password_verify($_POST["old_p"], $result["password"])) {
     $stmt = $conn->prepare("DELETE FROM users WHERE username=?");
     $stmt->execute([$_SESSION["username"]]);
     session_destroy();
-    header("Location: /index.php");
+    header("Location: /public/landing.php?deleted=deleted");
+    }
+    else {
+        header("Location: /public/account.php?message=incorrect");
+    }
 }
 
 

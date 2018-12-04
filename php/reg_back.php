@@ -1,5 +1,8 @@
 <?php
 
+$email = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
+$username = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
+
 function send_mail($email, $username, $ver_code) {
     $url = sprintf('%sverify.php?%s', "http://localhost:8080/php/", http_build_query([
 		'email' => $email,
@@ -23,12 +26,14 @@ function send_mail($email, $username, $ver_code) {
 if (isset($_POST["submit"])) {
     include "../config/connection.php";
     
-	$stmt = $conn->prepare("SELECT * FROM users WHERE username = ?");
-	$stmt->execute($_POST["username"]);
+	$stmt = $conn->prepare("SELECT * FROM users WHERE username = :username");
+	$stmt->bindParam(":username", $user);
+	$user = filter_var($_POST["username"], FILTER_SANITIZE_SPECIAL_CHARS);
+	$stmt->execute();
 
 	$est = $conn->prepare("SELECT * FROM users WHERE email=:email");
 	$est->bindParam(":email", $eeemail);
-	$eeemail = $_POST["email"];
+	$eeemail = filter_var($_POST["email"], FILTER_SANITIZE_EMAIL);
     $est->execute();
     
     $ver_code = bin2hex(random_bytes(8));
@@ -41,7 +46,7 @@ if (isset($_POST["submit"])) {
 			{
 				$stmt = $conn->prepare("INSERT INTO users (username, email, password, ver_code) VALUES (?, ?, ?, ?)");
 				$password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-                $stmt->execute([$_POST["username"], $_POST["email"], $password, $ver_code]);
+                $stmt->execute([$username, $email, $password, $ver_code]);
                 send_mail($_POST["email"], $_POST["username"], $ver_code);
 				header("Location: /public/login.php?message=submitted");
 			}

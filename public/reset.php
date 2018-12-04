@@ -42,7 +42,7 @@ if (false !== ctype_xdigit($selector) && false !== ctype_xdigit($validator)):
             <input type="hidden" name="selector" value="<?php echo $selector; ?>">
             <input type="hidden" name="validator" value="<?php echo $validator; ?>">
             <input type="hidden" name="email" value="<?php echo $email; ?>">
-            <input placeholder="Password" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
+            <input placeholder="Password" type="password" pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"  
                 title="Must contain at least one number and one uppercase and lowercase letter, and 
                 at least 8 or more characters" name="password" required>
             <input type="submit" name="submit" value="Submit">
@@ -50,3 +50,4 @@ if (false !== ctype_xdigit($selector) && false !== ctype_xdigit($validator)):
         <?php include "./templates/footer.php"; ?>
 <?php endif; ?>
 
+<style>footer {position: fixed;}</style>

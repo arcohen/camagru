@@ -10,9 +10,8 @@ if (isset($_SESSION['username']) == NULL)
     <form class="has-text-centered" action="/php/account_reset.php" method="post">
 		<input placeholder="Old Password" type="password" name="old_p" required>
         <input placeholder="New Password" type="password" name="new_p" 
-            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"  
-            title="Must contain at least one number and one uppercase and lowercase letter, and 
-            at least 8 or more characters" required>
+            pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"  
+            title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required>
 		<input type="submit" name="submit" value="Submit">
     </form>
     <?php
@@ -52,7 +51,8 @@ if (isset($_SESSION['username']) == NULL)
             echo "<h2 class='has-text-centered is-size-4'>Comment settings updated</h2>";
         }
     ?>
-    <form class="has-text-centered f_acc" action="/php/account_reset.php" method="post">
+    <form class="has-text-centered f_acc delete_button" action="/php/account_reset.php" method="post">
+        <input placeholder="Password" type="password" name="old_p" required>
         <input type="submit" name="delete" value="Delete Account">
     </form>
 </body>

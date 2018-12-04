@@ -9,6 +9,10 @@ html {
     color: white;
 }
 
+body {
+    height: 100%;
+}
+
 .navbar-brand {
     font-display: bold;
     font-size: 140%;
@@ -97,7 +101,7 @@ figcaption {
     font: 16px/26px Georgia, Garamond, Serif;
     overflow: auto;
     padding: 10px 10px 10px 0;
-    color: whitesmoke;
+    color: white;
     margin-bottom: 25px;
 }
 
@@ -113,11 +117,6 @@ height: auto;
 @media screen and (max-width: 400px) {
 header div { margin: 0; }
 header { padding: 0; }
-}
-
-#gallery-container {
-    padding-top: 7%;
-    padding-bottom: 10%;
 }
 
 .comment_input {
@@ -273,4 +272,14 @@ div.image_div:hover .image-likes {
 
 #gallery-container {
     max-width: 1280px;
+    padding-top: 7%;
+}
+
+.pagination {
+    padding-right: 7.5%;
+    padding-left: 7.5%;
+}
+
+#upload {
+    padding-top: 0;
 }

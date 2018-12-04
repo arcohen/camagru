@@ -6,23 +6,24 @@ var swap = 1;
 
 for (var i = 0; i < comment.length; i++)
 {
-    comment[i].addEventListener('click', function(e) {
+    comment[i].addEventListener('click', function() {
         if (swap) {
-            e.path[4].childNodes[1].childNodes[0].style.display = "block";
-            e.path[4].childNodes[1].childNodes[0].childNodes[0].focus();
+            this.parentNode.parentNode.nextSibling.style.visibility = "visible";
             swap = 0;
         } else {
-            e.path[4].childNodes[1].childNodes[0].style.display = "none";
+            this.parentNode.parentNode.nextSibling.style.visibility = "hidden";
             swap = 1;
         }
     });
 
     del[i].addEventListener("click", function(e) {
-        e.target.nextSibling.submit();
+        if (confirm("Delete photo?") == true)
+            e.target.nextSibling.submit();
     });
 
     like[i].addEventListener("click", function(e) {
-        e.target.nextSibling.submit();
+            e.target.nextSibling.submit();
     });
 
 }
+

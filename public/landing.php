@@ -14,7 +14,11 @@
         else if ($_GET["reset"] == "username") {
             echo "<h1 class='has-text-centered is-size-3 land'>Username Updated</h1>";
         }
+        else if ($_GET["deleted"] == "deleted") {
+            echo "<h1 class='has-text-centered is-size-3 land'>Account deleted</h1>";
+        }
     ?>
 </body>
 
 <?php include "templates/footer.php"; ?>
+<style>footer {position: fixed;}</style>

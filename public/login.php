@@ -1,7 +1,7 @@
 <?php include "./templates/header.php"; ?>
 
 <body>
-	<form class="has-text-centered" action="../php/login_back.php" method="post">
+	<form class="has-text-centered" action="/php/login_back.php" method="post">
 		<input placeholder="Username" type="text" name="username" required>
 		<input placeholder="Password" type="password" name="password" required>
 		<input type="submit" name="submit" value="Login">
@@ -28,3 +28,4 @@
 </body>
 
 <?php include "templates/footer.php"; ?>
+<style>footer {position: fixed;}</style>

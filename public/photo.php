@@ -15,11 +15,17 @@ if (isset($_SESSION['username']) == NULL)
                         <option id="fool" value="fool">Fool</option>
                         <option id="psy" value="psy">Psychedelic</option>
                         <option id="psy" value="flowers">Flowers</option>
+                        <option id="psy" value="scratches">Scratches</option>
+                        <option id="psy" value="people">People</option>
+                        <option id="psy" value="blood">Blood</option>
                     </select>
                     <input type="hidden" name="image" id="img_tag">
                     <input type="button" name="Submit" id="snap" value="Take Photo">
                     <input type="submit" name="Save" id="submit">
                 </form>
+
+                <input id="img_upload" type="file" name="image">
+                <input id="upload-button" type="button" value="Upload">
                 <canvas id="canvas" width="320" height="240"></canvas>
             </div>
         </div>

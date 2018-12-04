@@ -1,8 +1,5 @@
 <?php
 
-if ($_SESSION['username'] == NULL)
-    header('Location: /public/login.php/?access=no');
-
 include "./templates/header.php";
 
 function reset_email($email, $conn) {
@@ -84,3 +81,4 @@ if (isset($_POST["submit"]))
 </body>
 
 <?php include "./templates/footer.php"; ?>
+<style>footer {position: fixed;}</style>

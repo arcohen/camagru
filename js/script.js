@@ -13,28 +13,64 @@ if(navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var video = document.getElementById('video');
-
-document.getElementById('snap').addEventListener('click', function() {
-   context.drawImage(video, 0, 0, 320, 240);
-   canvas.toDataURL();
-   document.getElementById("img_tag").value = canvas.toDataURL();
-
-});
+var image = new Image();
+var canSubmit = false;
+var drop = document.getElementById('options');
+var selected;
+var uploadBut = document.getElementById('upload-button');
 
 document.getElementById('submit').disabled = true;
-document.getElementById('snap').disabled = true;
+uploadBut.disabled = true;
 
-document.getElementById('options').addEventListener('change', function() {
-    drop = document.getElementById('options');
-    selected = drop.options[drop.selectedIndex].text;
-    if (selected == "None")
-        document.getElementById('snap').disabled = true;
-    else
-        document.getElementById('snap').disabled = false;        
-})
+
+function put_on_canvas(paste) {
+    console.log(paste);
+
+    context.drawImage(paste, 0, 0, 320, 240);
+    canvas.toDataURL();
+    document.getElementById("img_tag").value = canvas.toDataURL();
+}
 
 document.getElementById('snap').addEventListener('click', function() {
-    document.getElementById('submit').disabled = false;
-})
+        put_on_canvas(video);
+        canSubmit = true;
+});
+
+document.getElementById('upload-button').addEventListener('click', function() {
+        put_on_canvas(image);
+        canSubmit = true;
+});
+
+setInterval(function() {
+    selected = drop.options[drop.selectedIndex].text;
+    if (canSubmit && selected != "None")
+        document.getElementById('submit').disabled = false;
+}, 10);
+
+function checkURL(url) {
+    return(url.match(/image\/(jpg|gif|png|jpeg)/) != null);
+}
+
+
+document.querySelector('#img_upload').addEventListener('change', function() {
+
+       if (this.files.length === 0)
+           return;
+
+       var file = this.files[0];
+       var reader = new FileReader();
+       reader.onload = function(e) {
+            if (checkURL(e.target.result)) {
+                image.src = e.target.result;
+                uploadBut.disabled = false;
+            }
+
+            else {
+                alert("wrong file type");
+                uploadBut.disabled = true;
+            }
+       };
+       reader.readAsDataURL(file);
+   }, false);
 
 

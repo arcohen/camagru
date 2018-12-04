@@ -24,8 +24,17 @@ if ($_POST["frame"] == "fool")
     $frame_path = "http://localhost:8080/img/fool.png";
 else if ($_POST["frame"] == "psy")
     $frame_path = "http://localhost:8080/img/wooh.png";
-else
+else if ($_POST["frame"] == "flowers")
     $frame_path = "http://localhost:8080/img/flower.png";
+else if ($_POST["frame"] == "scratches")
+    $frame_path = "http://localhost:8080/img/scratches.png";
+else if ($_POST["frame"] == "people")
+    $frame_path = "http://localhost:8080/img/people.png";
+else if ($_POST["frame"] == "blood")
+    $frame_path = "http://localhost:8080/img/blood.png";
+else if ($_POST["frame"] == "psy")
+    $frame_path = "http://localhost:8080/img/flower.png";
+
 
 $frame = imagecreatefrompng($frame_path);
 $webcam_img = imagecreatefrompng('temp.png');

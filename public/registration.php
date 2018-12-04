@@ -5,6 +5,7 @@
 		<input placeholder="Username" type="text" name="username" required>
 		<input placeholder="Email Address" type="email" name="email" required>
 		<input placeholder="Password" type="password"
+			pattern="^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$"
 			title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" name="password" required>
 		<input placeholder="Confirm Password" type="password" name="password2" required>
 		<input type="submit" name="submit" value="Submit">
@@ -23,3 +24,4 @@
 </body>
 
 <?php include "./templates/footer.php"; ?>
+<style>footer {position: fixed;}</style>
