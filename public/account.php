@@ -58,3 +58,4 @@ if (isset($_SESSION['username']) == NULL)
 </body>
 
 <?php include "templates/footer.php"; ?>
+<style type="text/css">footer {z-index: -1000}</style>

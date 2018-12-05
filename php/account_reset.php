@@ -58,6 +58,15 @@ else if (isset($_POST["submit_username"]))
         $stmt->execute([$_POST["new_username"]]);
 
         if ($stmt->rowCount() == 0) {
+            $stmt = $conn->prepare("UPDATE images SET username=? WHERE username=?");
+            $stmt->execute([$_POST["new_username"], $_SESSION["username"]]);
+
+            $stmt = $conn->prepare("UPDATE likes SET username=? WHERE username=?");
+            $stmt->execute([$_POST["new_username"], $_SESSION["username"]]);
+
+            $stmt = $conn->prepare("UPDATE comments SET username=? WHERE username=?");
+            $stmt->execute([$_POST["new_username"], $_SESSION["username"]]);
+
             $stmt = $conn->prepare("UPDATE users SET username=? WHERE username=?");
             $stmt->execute([$_POST["new_username"], $_SESSION["username"]]);
             $_SESSION["username"] = $_POST["new_username"];

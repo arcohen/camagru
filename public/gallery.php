@@ -11,7 +11,7 @@ include "./templates/header.php";
                     if ($_GET['delete'] == 'yes')
                         $message = 'Photo Deleted';
                     else
-                        $message = 'You can only delete your own photo';
+                        $message = 'You can only delete your own photos.,';
 
                     echo '<div class="section is-size-3 has-text-centered">' . $message . '</div>';
                 }

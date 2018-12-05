@@ -103,6 +103,8 @@ figcaption {
     padding: 10px 10px 10px 0;
     color: white;
     margin-bottom: 25px;
+    visibility: hidden;
+    text-shadow: 1px 1px gray;
 }
 
 header { 
@@ -114,22 +116,19 @@ header div img {
 width: 100%; 
 height: auto; 
 }
-@media screen and (max-width: 400px) {
-header div { margin: 0; }
-header { padding: 0; }
-}
 
 .comment_input {
     padding: 10px 0;
     margin: 0;
     border: 0;
     text-align: left;
-    display: none;
+    width: ;
+    /*display: none;*/
 }
 
 .comment_box {
     margin-right: 12px;
-    width: 220px;
+    width: 205px;
 }
 
 .pic img {
@@ -191,7 +190,6 @@ header { padding: 0; }
     transform: translateY(-50%);
     padding: 0 5%;
     font-size: 180%;
-    /* color: black; */
 }
 
 .image_div {
@@ -235,12 +233,6 @@ div.image_div:hover .image-likes {
     display: none;
 }
 
-@media screen and (min-width: 600px) {
-    .cell {
-      width: calc(50% - 2rem);
-    }
-}  
-
 .cell {
     width: 320px;
     margin: auto;
@@ -283,3 +275,23 @@ div.image_div:hover .image-likes {
 #upload {
     padding-top: 0;
 }
+
+#infinite {
+    text-align: center;
+}
+
+#infinite {
+    background-color: transparent;
+}
+
+.pag-buttons {
+    color: whitesmoke;
+    transition: all 0.3s;
+}
+
+.pag-buttons:hover {
+    color: #363636;
+    background-color: whitesmoke;
+}
+
+
